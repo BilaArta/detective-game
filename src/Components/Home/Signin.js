@@ -1,4 +1,6 @@
 import { Component } from "react";
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
 
 class Signin extends Component {
     initialState = {
@@ -25,11 +27,11 @@ class Signin extends Component {
 
         return (
             <form>
-                <label htmlFor="username">Username :</label>
-                <input
-                    type="text"
-                    name="username"
+                <TextField
                     id="username"
+                    size="small"
+                    label="Username"
+                    defaultValue=" "
                     value={username}
                     onChange={this.handleChange}
                 />
