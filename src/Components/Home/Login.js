@@ -1,4 +1,6 @@
 import { Component } from "react";
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
 
 class Login extends Component {
 	constructor(props) {
@@ -21,7 +23,7 @@ class Login extends Component {
 	};
 
 	submitForm = () => {
-		alert("A name was submitted: " + this.state);
+		alert("A name was submitted: " + this.state.username);
 		//this.props.handleChange(this.state);
 		this.setState(this.initialState);
 	};
@@ -31,23 +33,27 @@ class Login extends Component {
 
 		return (
 			<form>
-				<TextField
-            id="username"
-            size="small"
-            label="Username"
-            defaultValue=" "
-            value={username}
-            onChange={this.handleChange}
-        />
-        <TextField
-              id="password"
+        <div>
+          <TextField
+              id="username"
               size="small"
-              label="password"
+              label="Username"
               defaultValue=" "
-              value={password}
+              value={username}
               onChange={this.handleChange}
-            />
-				<input type="button" value="Submit" onClick={this.submitForm} />
+          />
+        </div>
+        <div>
+          <TextField
+            id="password"
+            size="small"
+            label="password"
+            defaultValue=" "
+            value={password}
+            onChange={this.handleChange}
+          />
+        </div>
+				<input type="button btn-primary" value="Submit" onClick={this.submitForm} />
 			</form>
 		);
 	}
