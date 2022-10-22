@@ -1,4 +1,4 @@
-import { Component } from "react";
+import { Component, useState, useEffect } from "react";
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 
@@ -35,7 +35,6 @@ class Signin extends Component {
                     value={username}
                     onChange={this.handleChange}
                 />
-                <br></br>
                 <input type="button" value="Submit" onClick={this.submitForm} />
             </form>
         );
