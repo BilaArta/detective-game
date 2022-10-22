@@ -1,54 +1,56 @@
 import { Component } from "react";
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
 
 class Login extends Component {
-  initialState = {
-    username:"",
-    password:"",
-  };
+	constructor(props) {
+		super(props);
 
-  state = this.initialState;
+		this.initialState = {
+			username: "",
+			password: "",
+		};
 
-  handleChangeUser = (event) => {
-    const { username, value } = event.target;
+		this.state = this.initialState;
+	}
 
-    this.setState({
-        [username]: value,
-    });
-  };
+	handleChange = (event) => {
+		const { id, value } = event.target;
 
-  handleChangePassword = (event) => {
-    const { password, value } = event.target;
+		this.setState({
+			[id]: value,
+		});
+	};
 
-    this.setState({
-        [password]: value,
-    });
-  };
+	submitForm = () => {
+		alert("A name was submitted: " + this.state);
+		//this.props.handleChange(this.state);
+		this.setState(this.initialState);
+	};
 
-  render() {
-    const { username, password } = this.state;
-    return (
-        <form>
-            <TextField
-                id="username"
-                size="small"
-                label="Username"
-                defaultValue=" "
-                value={username}
-                onChange={this.handleChangeUser}
+	render() {
+		const { username, password } = this.state;
+
+		return (
+			<form>
+				<TextField
+            id="username"
+            size="small"
+            label="Username"
+            defaultValue=" "
+            value={username}
+            onChange={this.handleChange}
+        />
+        <TextField
+              id="password"
+              size="small"
+              label="password"
+              defaultValue=" "
+              value={password}
+              onChange={this.handleChange}
             />
-            <TextField
-                  id="password"
-                  size="small"
-                  label="password"
-                  defaultValue=" "
-                  value={password}
-                  onChange={this.handleChangePassword}
-                />
-            <input type="button" value="Submit" onClick={this.submitForm} />
-        </form>
-    );
+				<input type="button" value="Submit" onClick={this.submitForm} />
+			</form>
+		);
+	}
 }
-}
-export default Login
+
+export default Login;
